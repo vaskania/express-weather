@@ -46,9 +46,18 @@ app.get("/weather", (req, res) => {
   });
 });
 
+app.get("/help/*", (req, res) => {
+  res.render("404", {
+    errorMessage: "Help article not found",
+    title: "404",
+    name: "Vaska",
+  });
+});
+
 app.get("*", (req, res) => {
   res.render("404", {
-    title: "Page not found",
+    errorMessage: "Page not found.",
+    title: "404",
     name: "Vaska",
   });
 });
